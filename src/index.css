@@ -1,3 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+@layer base {
+    #root[data-theme="light"] {
+        --color-primary: 220, 98%, 61%;
+        --color-primary-gradient-accent-1: 192, 100%, 67%;
+        --color-primary-gradient-accent-2: 280, 87%, 65%;
+        --color-bg-background: 0, 0%, 98%;
+        --color-bg-content: 0, 0%, 100%;
+        --color-text-primary: 235, 19%, 35%;
+        --color-text-secondary: 236, 9%, 61%;
+        --color-text-hover: 236, 9%, 61%;
+    }
+
+    #root[data-theme="dark"] {
+        --color-primary: 220, 98%, 61%;
+        --color-primary-gradient-accent-1: 192, 100%, 67%;
+        --color-primary-gradient-accent-2: 280, 87%, 65%;
+        --color-bg-background: 235, 21%, 11%;
+        --color-bg-content: 235, 24%, 19%;
+        --color-text-primary: 234, 39%, 85%;
+        --color-text-secondary: 234, 11%, 52%;
+        --color-text-hover: 236, 33%, 92%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-primary: 220, 98%, 61%;
+            --color-primary-gradient-accent-1: 192, 100%, 67%;
+            --color-primary-gradient-accent-2: 280, 87%, 65%;
+            --color-bg-background: 235, 21%, 11%;
+            --color-bg-content: 235, 24%, 19%;
+            --color-text-primary: 234, 39%, 85%;
+            --color-text-secondary: 234, 11%, 52%;
+            --color-text-hover: 236, 33%, 92%;
+        }
+    }
+}
