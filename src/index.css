@@ -8,6 +8,10 @@ body {
     font-family: "Josefin Sans", sans-serif;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 @layer base {
     #root[data-theme="light"] {
         --color-primary: 220, 98%, 61%;
