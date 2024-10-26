@@ -1,4 +1,9 @@
+import { ToastContainer } from "react-toastify"
+import "react-toastify/ReactToastify.css"
+import TaskInput from "./components/TaskInput"
 import ThemeToggler from "./features/theme/ThemeToggler"
+// import { useAppSelector } from "./hooks/useAppSelector"
+import TaskList from "./components/TaskList"
 import { useAppSelector } from "./hooks/useAppSelector"
 
 const App = () => {
@@ -8,7 +13,7 @@ const App = () => {
         <div className="h-screen bg-bg-background">
             <div
                 className={`w-screen h-[40%]  ${
-                    themeMode === "light"
+                    themeMode === "dark"
                         ? "bg-[url(./assets/images/bg-mobile-light.jpg)]"
                         : "bg-[url(./assets/images/bg-mobile-dark.jpg)]"
                 } ${
@@ -25,11 +30,13 @@ const App = () => {
                         <ThemeToggler />
                     </div>
                     <div className="w-full flex flex-col gap-3">
-                        <div className="w-full bg-bg-content min-h-[50px] rounded-md"></div>
-                        <div className="w-full bg-bg-content min-h-[300px] rounded-md shadow-lg"></div>
+                        <TaskInput />
+                        <TaskList />
                     </div>
                 </div>
             </div>
+
+            <ToastContainer />
         </div>
     )
 }

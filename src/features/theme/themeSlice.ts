@@ -1,11 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit"
+import {
+    getFromLocalStorage,
+    saveToLocalStorage
+} from "../../util/localStoragFunctions"
+
+type ThemeType = "light" | "dark"
 
 type ThemeState = {
-    themeMode: "light" | "dark"
+    themeMode: ThemeType
 }
 
+// to save the system theme to local storage
+const systemTheme = () =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+
+const theme =
+    (getFromLocalStorage("theme") as ThemeType) || (systemTheme() as ThemeType)
+
 const initialState: ThemeState = {
-    themeMode: "light"
+    themeMode: theme
 }
 
 const themeSlice = createSlice({
@@ -13,9 +26,13 @@ const themeSlice = createSlice({
     initialState,
     reducers: {
         switchThemeMode: (state) => {
-            state.themeMode === "light"
-                ? (state.themeMode = "dark")
-                : (state.themeMode = "light")
+            if (state.themeMode === "light") {
+                state.themeMode = "dark"
+                saveToLocalStorage("theme", "dark")
+            } else {
+                state.themeMode = "light"
+                saveToLocalStorage("theme", "light")
+            }
         }
     }
 })
