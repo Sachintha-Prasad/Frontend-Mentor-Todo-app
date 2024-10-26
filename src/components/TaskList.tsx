@@ -59,7 +59,7 @@ const TaskList = () => {
                                 `}
                                 onClick={() => handleTaskToggle(task.taskId)}
                             >
-                                <FaCheck className="text-white text-[9px]" />
+                                <FaCheck className="text-transparent text-[9px]" />
                             </button>
                             <p
                                 className={`${
